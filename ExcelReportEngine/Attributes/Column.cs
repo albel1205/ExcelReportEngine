@@ -15,7 +15,7 @@ namespace ExcelReportEngine.Attributes
 
         public void ApplyToSheet(ExcelWorksheet sheet)
         {
-            sheet.Row(Index).Height = Width;
+            sheet.Column(Index).Width = Width;
         }
     }
 }

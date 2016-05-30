@@ -18,7 +18,12 @@ namespace ExcelReportEngine.Tests
 
         public void WriteToFile(MemoryStream excelStream, string path)
         {
-            throw new NotImplementedException();
+            using (var filestream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite))
+            {
+                excelStream.WriteTo(filestream);
+                filestream.Close();
+                excelStream.Close();
+            }
         }
     }
 }

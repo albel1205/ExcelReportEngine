@@ -25,5 +25,7 @@ namespace ExcelReportEngine.Models
         public int FromColum { get; set; }
         public int ToRow { get; set; }
         public int ToColumn { get; set; }
+
+        public string Value { get; set; }
     }
 }

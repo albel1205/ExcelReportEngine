@@ -16,7 +16,8 @@ namespace ExcelReportEngine.Attributes
         
         public void ApplyToSheet(ExcelWorksheet sheet, Range range)
         {
-            throw new NotImplementedException();
+            sheet.Cells[Row, Column].Merge = true;
+            sheet.Cells[Row, Column].Value = range.Value;
         }
     }
 }
