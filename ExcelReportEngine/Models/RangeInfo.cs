@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ExcelReportEngine.Models
 {
-    public class Range
+    public class RangeInfo
     {
-        public Range()
+        public RangeInfo()
         {
 
         }
 
-        public Range(int fromRow, int fromCol, int toRow, int toCol)
+        public RangeInfo(int fromRow, int fromCol, int toRow, int toCol)
         {
             this.FromRow = fromRow;
             this.FromColum = fromCol;

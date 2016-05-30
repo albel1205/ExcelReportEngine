@@ -9,17 +9,20 @@ using OfficeOpenXml;
 namespace ExcelReportEngine.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class Cells : Attribute, IRangeDecorator
+    public class Cells : Cell
     {
-        public int FromRow { get; set; }
-        public int FromColum { get; set; }
         public int ToRow { get; set; }
         public int ToColumn { get; set; }
         
-        public void ApplyToSheet(ExcelWorksheet sheet, Range range)
+        public override void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
         {
-            sheet.Cells[FromRow, FromColum, ToRow, ToColumn].Merge = true;
-            sheet.Cells[FromRow, FromColum, ToRow, ToColumn].Value = range.Value;
+            sheet.Cells[Row, Column, ToRow, ToColumn].Merge = true;
+            sheet.Cells[Row, Column, ToRow, ToColumn].Value = range.Value;
+        }
+
+        public override RangeInfo GetRange()
+        {
+            return new RangeInfo(Row, Column, ToRow, ToColumn);
         }
     }
 }

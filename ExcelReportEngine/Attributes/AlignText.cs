@@ -14,7 +14,7 @@ namespace ExcelReportEngine.Attributes
     {
         public ExcelHorizontalAlignment Align { get; set; }
 
-        public void ApplyToSheet(ExcelWorksheet sheet, Range range)
+        public void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
         {
             var cell = sheet.Cells[range.FromRow, range.FromColum, range.ToRow, range.ToColumn];
             cell.Style.HorizontalAlignment = Align;

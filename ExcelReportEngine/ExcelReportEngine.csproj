@@ -52,13 +52,15 @@
     <Compile Include="Attributes\Cells.cs" />
     <Compile Include="Attributes\Column.cs" />
     <Compile Include="Attributes\Font.cs" />
+    <Compile Include="Attributes\ILocatable.cs" />
     <Compile Include="Attributes\IRangeDecorator.cs" />
     <Compile Include="Attributes\ISheetDecorator.cs" />
     <Compile Include="Attributes\Row.cs" />
     <Compile Include="Attributes\Table.cs" />
     <Compile Include="Attributes\Workbook.cs" />
     <Compile Include="Attributes\Worksheet.cs" />
-    <Compile Include="Models\Range.cs" />
+    <Compile Include="Exceptions\NoCellAttributeException.cs" />
+    <Compile Include="Models\RangeInfo.cs" />
     <Compile Include="ReportBase.cs" />
     <Compile Include="IExportable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

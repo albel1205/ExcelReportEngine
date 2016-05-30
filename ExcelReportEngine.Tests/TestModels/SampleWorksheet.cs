@@ -15,7 +15,7 @@ namespace ExcelReportEngine.Tests.TestModels
     [Row(Index = 3, Height = 3)]
     public class SampleWorksheet : SheetBase
     {
-        [Cells(FromRow = 2, FromColum = 2, ToRow = 2, ToColumn = 7)]
+        [Cells(Row = 2, Column = 2, ToRow = 2, ToColumn = 7)]
         [Font(ColorRgb = 0, FontName = "Arial", FontWeight = FontWeights.Bold, Size = 25)]
         [AlignText(Align = ExcelHorizontalAlignment.Center)]
         public string Title { get; set; }

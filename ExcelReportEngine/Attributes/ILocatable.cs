@@ -1,5 +1,4 @@
 ﻿using ExcelReportEngine.Models;
-using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ExcelReportEngine.Attributes
 {
-    public interface IRangeDecorator
+    public interface ILocatable
     {
-        void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range);
+        RangeInfo GetRange();
     }
 }

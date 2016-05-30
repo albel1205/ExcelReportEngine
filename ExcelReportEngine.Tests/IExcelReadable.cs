@@ -10,6 +10,6 @@ namespace ExcelReportEngine.Tests
 {
     public interface IExcelReadable
     {
-        ExcelRange GetRange(string path, Range range);
+        ExcelRange GetRange(string path, RangeInfo range);
     }
 }

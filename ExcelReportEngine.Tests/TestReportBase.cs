@@ -11,7 +11,7 @@ namespace ExcelReportEngine.Tests
 {
     public abstract class TestReportBase : IExcelWritable, IExcelReadable
     {
-        public ExcelRange GetRange(string path, Range range)
+        public ExcelRange GetRange(string path, RangeInfo range)
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,7 @@ namespace ExcelReportEngine.Attributes
     {
         public Color Color { get; set; }
 
-        public void ApplyToSheet(ExcelWorksheet sheet, Range range)
+        public void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
         {
             var cell = sheet.Cells[range.FromRow, range.FromColum, range.ToRow, range.ToColumn];
             cell.Style.Fill.PatternType = ExcelFillStyle.Solid;
