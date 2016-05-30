@@ -71,7 +71,7 @@ namespace ExcelReportEngine
             {
                 throw new ArgumentNullException(prop.Name);
             }
-            range.Value = prop.GetValue(this).ToString();//check null
+            range.Value = value.ToString();
 
             return range;
         }
