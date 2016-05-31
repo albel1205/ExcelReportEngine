@@ -28,18 +28,18 @@ namespace ExcelReportEngine
             var props = this.GetType().GetProperties();
             foreach (var prop in props)
             {
-                var rangeAttributes = GetRangeDecoratorAttributes(prop);
-                var rangeInfo = GetRangeObject(rangeAttributes.ToArray(), prop);
-                rangeAttributes.ForEach(x => x.ApplyToSheet(worksheet, rangeInfo));
+                var propAttributes = GetPropertyAttributes(prop);
+                var rangeInfo = GetRangeObject(propAttributes.ToArray(), prop);
+                propAttributes.ForEach(x => x.ApplyToSheet(worksheet, rangeInfo));
             }
 
-            var sheetAttrs = GetSheetDecoratorAttributes();
-            sheetAttrs.ForEach(x => x.ApplyToSheet(worksheet));
+            var sheetAttributes = GetSheetAttributes();
+            sheetAttributes.ForEach(x => x.ApplyToSheet(worksheet));
 
             return worksheet;
         }
 
-        private List<IRangeDecorator> GetRangeDecoratorAttributes(PropertyInfo property)
+        private List<IRangeDecorator> GetPropertyAttributes(PropertyInfo property)
         {
             return property.GetCustomAttributes(true)
                     .Where(x => iRangeDecoratorType.IsInstanceOfType(x))
@@ -47,7 +47,7 @@ namespace ExcelReportEngine
                     .ToList();
         }
 
-        private List<ISheetDecorator> GetSheetDecoratorAttributes()
+        private List<ISheetDecorator> GetSheetAttributes()
         {
             return this.GetType()
                 .GetCustomAttributes()
