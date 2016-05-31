@@ -12,7 +12,7 @@ namespace ExcelReportEngine.Tests.TestModels
     [Workbook]
     public class SampleExcelReport : ReportBase
     {
-        public SampleExcelReport(SampleWorksheet[] sheets)
+        public SampleExcelReport(SheetBase[] sheets)
             : base(sheets)
         {
 

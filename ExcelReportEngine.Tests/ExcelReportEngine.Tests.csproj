@@ -86,6 +86,7 @@
     <Compile Include="TestModels\SampleCustomerComplaintItem.cs" />
     <Compile Include="TestModels\SampleCustomerComplaintTable.cs" />
     <Compile Include="TestModels\SampleExcelReport.cs" />
+    <Compile Include="TestModels\SampleNoCellAttribute.cs" />
     <Compile Include="TestModels\SampleWorksheet.cs" />
     <Compile Include="TestReportBase.cs" />
   </ItemGroup>

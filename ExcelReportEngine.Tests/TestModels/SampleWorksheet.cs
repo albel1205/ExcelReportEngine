@@ -50,7 +50,7 @@ namespace ExcelReportEngine.Tests.TestModels
         [AlignText(Align = ExcelHorizontalAlignment.Left)]
         public string CustomerName { get; set; }
 
-        //[Table]
-        //public SampleCustomerComplaintTable CustomerComplaintTable { get; set; }
+        [Table]
+        public SampleCustomerComplaintTable CustomerComplaintTable { get; set; }
     }
 }

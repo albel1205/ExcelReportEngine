@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AlignText.cs" />
+    <Compile Include="Attributes\Array.cs" />
     <Compile Include="Attributes\Background.cs" />
     <Compile Include="Attributes\Border.cs" />
     <Compile Include="Attributes\Cell.cs" />
