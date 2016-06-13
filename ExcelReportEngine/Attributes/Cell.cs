@@ -9,20 +9,49 @@ using OfficeOpenXml;
 namespace ExcelReportEngine.Attributes
 {
     [AttributeUsage( AttributeTargets.Property )]
-    public class Cell : Attribute, IRangeDecorator, ILocatable
+    public class Cell : AttributeBase, ILocatable
     {
         public int Row { get; set; }
         public int Column { get; set; }
-        
-        public virtual void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
-        {
-            sheet.Cells[Row, Column].Merge = true;
-            sheet.Cells[Row, Column].Value = range.Value;
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public string Id { get; set; }
+        public int MarginRow { get; set; }
+        public int MarginColumn { get; set; }
+        public string MarginWith { get; set; }
+
+        public int EndRow {
+            get
+            {
+                return Row + Width;
+            }
         }
 
-        public virtual RangeInfo GetRange()
+        public int EndColumn
         {
-            return new RangeInfo(Row, Column, Row, Column);
+            get
+            {
+                return Column + Height;
+            }
+        }
+        
+        public override void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value)
+        {
+            sheet.Cells[Row, Column, EndRow, EndColumn].Merge = true;
+            sheet.Cells[Row, Column, EndRow, EndColumn].Value = value;
+
+            base.ApplyToSheet(sheet, range, value);
+        }
+
+        public virtual Range GetRange()
+        {
+            if (string.IsNullOrEmpty(MarginWith))
+            {
+                return new Range(Row, Column, EndRow, EndColumn);
+            }
+
+            Row = 0; Column = 0;
+            return new Range(0, 0, EndRow, EndColumn);
         }
     }
 }

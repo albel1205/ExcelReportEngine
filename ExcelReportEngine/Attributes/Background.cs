@@ -11,15 +11,17 @@ using OfficeOpenXml.Style;
 namespace ExcelReportEngine.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class Background : Attribute, IRangeDecorator
+    public class Background : AttributeBase
     {
         public Color Color { get; set; }
 
-        public void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
+        public override void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value)
         {
-            var cell = sheet.Cells[range.FromRow, range.FromColum, range.ToRow, range.ToColumn];
+            var cell = sheet.Cells[range.FromRow, range.FromColumn, range.ToRow, range.ToColumn];
             cell.Style.Fill.PatternType = ExcelFillStyle.Solid;
             cell.Style.Fill.BackgroundColor.SetColor(Color);
+
+            base.ApplyToSheet(sheet, range, value);
         }
     }
 }

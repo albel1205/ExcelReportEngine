@@ -9,11 +9,11 @@ using OfficeOpenXml;
 namespace ExcelReportEngine.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class Array : Attribute, IRangeDecorator
+    public class Array : AttributeBase
     {
-        public void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
+        public override void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value)
         {
-            throw new NotImplementedException();
+            base.ApplyToSheet(sheet, range, value);
         }
     }
 }

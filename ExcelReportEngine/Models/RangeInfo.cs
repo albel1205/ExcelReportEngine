@@ -13,19 +13,25 @@ namespace ExcelReportEngine.Models
 
         }
 
-        public RangeInfo(int fromRow, int fromCol, int toRow, int toCol)
+        public RangeInfo(int fromRow, int fromCol, int toRow, int toCol, string value)
         {
             this.FromRow = fromRow;
-            this.FromColum = fromCol;
+            this.FromColumn = fromCol;
             this.ToRow = toRow;
             this.ToColumn = toCol;
         }
 
+        public RangeInfo(Range range)
+        {
+            this.FromRow = range.FromRow;
+            this.FromColumn = range.FromColum;
+            this.ToRow = range.ToRow;
+            this.ToColumn = range.ToColumn;
+        }
+
         public int FromRow { get; set; }
-        public int FromColum { get; set; }
+        public int FromColumn { get; set; }
         public int ToRow { get; set; }
         public int ToColumn { get; set; }
-
-        public string Value { get; set; }
     }
 }

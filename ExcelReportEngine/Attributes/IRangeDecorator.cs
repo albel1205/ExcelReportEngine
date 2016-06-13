@@ -10,6 +10,8 @@ namespace ExcelReportEngine.Attributes
 {
     public interface IRangeDecorator
     {
-        void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range);
+        void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value);
+        int GetLastRow();
+        int GetLastColumn();
     }
 }

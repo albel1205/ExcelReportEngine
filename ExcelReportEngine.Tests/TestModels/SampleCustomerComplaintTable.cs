@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelReportEngine.Tests.TestModels
 {
-    public class SampleCustomerComplaintTable : TableBase<SampleCustomerComplaintItem>
+    public class SampleCustomerComplaintTable : TableBase
     {
         public SampleCustomerComplaintTable(string[] headers, SampleCustomerComplaintItem[] data)
             : base(headers, data)

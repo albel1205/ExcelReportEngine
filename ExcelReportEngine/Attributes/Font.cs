@@ -10,16 +10,16 @@ using OfficeOpenXml;
 namespace ExcelReportEngine.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class Font : Attribute, IRangeDecorator
+    public class Font : AttributeBase
     {
         public string FontName { get; set; }
         public FontWeights FontWeight { get; set; }
         public float Size { get; set; }
         public int ColorRgb { get; set; }
         
-        public void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range)
+        public override void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value)
         {
-            var cell = sheet.Cells[range.FromRow, range.FromColum, range.ToRow, range.ToColumn];
+            var cell = sheet.Cells[range.FromRow, range.FromColumn, range.ToRow, range.ToColumn];
             cell.Style.Font.Name = FontName;
             cell.Style.Font.Size = Size;
             cell.Style.Font.Color.SetColor(Color.FromArgb(ColorRgb));
@@ -36,6 +36,8 @@ namespace ExcelReportEngine.Attributes
             {
                 cell.Style.Font.UnderLine = true;
             }
+
+            base.ApplyToSheet(sheet, range, value);
         }
     }
 

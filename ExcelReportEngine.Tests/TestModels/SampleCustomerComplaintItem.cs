@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExcelReportEngine.Tests.TestModels
 {
-    public class SampleCustomerComplaintItem
+    public class SampleCustomerComplaintItem : TableItemBase
     {
         public DateTime RegisteredDate { get; set; }
         public string ComplaintTypeText { get; set; }

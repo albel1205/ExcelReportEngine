@@ -8,6 +8,7 @@ using ExcelReportEngine.Attributes;
 using ExcelReportEngine.Models;
 using System.Reflection;
 using ExcelReportEngine.Exceptions;
+using ExcelReportEngine;
 
 namespace ExcelReportEngine
 {
@@ -29,8 +30,11 @@ namespace ExcelReportEngine
             foreach (var prop in props)
             {
                 var propAttributes = GetPropertyAttributes(prop);
-                var rangeInfo = GetRangeObject(propAttributes.ToArray(), prop);
-                propAttributes.ForEach(x => x.ApplyToSheet(worksheet, rangeInfo));
+
+                RangeInfo rangeInfo = GetRangeObject(propAttributes.ToArray(), prop);
+                object value = prop.GetValue(this);
+
+                propAttributes.ForEach(x => x.ApplyToSheet(worksheet, rangeInfo, value));
             }
 
             var sheetAttributes = GetSheetAttributes();
@@ -71,9 +75,9 @@ namespace ExcelReportEngine
             {
                 throw new ArgumentNullException(prop.Name);
             }
-            range.Value = value.ToString();
 
-            return range;
+            var rangeInfo = new RangeInfo(range);
+            return rangeInfo;
         }
     }
 }

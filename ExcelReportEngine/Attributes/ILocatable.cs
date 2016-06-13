@@ -9,6 +9,6 @@ namespace ExcelReportEngine.Attributes
 {
     public interface ILocatable
     {
-        RangeInfo GetRange();
+        Range GetRange();
     }
 }

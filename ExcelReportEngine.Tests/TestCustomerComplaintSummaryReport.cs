@@ -42,7 +42,7 @@ namespace ExcelReportEngine.Tests
         {
             var sheet = new SampleWorksheet()
             {
-                CustomerComplaintTable = GetSampleCustomerComplaintTable(),
+                //CustomerComplaintTable = GetSampleCustomerComplaintTable(),
                 FromPeriod = "2015-15-01",
                 FromPeriodLabel = "From:",
                 ToPeriod = "2015-15-01",

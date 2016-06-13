@@ -47,10 +47,10 @@
   <ItemGroup>
     <Compile Include="Attributes\AlignText.cs" />
     <Compile Include="Attributes\Array.cs" />
+    <Compile Include="Attributes\AttributeBase.cs" />
     <Compile Include="Attributes\Background.cs" />
     <Compile Include="Attributes\Border.cs" />
     <Compile Include="Attributes\Cell.cs" />
-    <Compile Include="Attributes\Cells.cs" />
     <Compile Include="Attributes\Column.cs" />
     <Compile Include="Attributes\Font.cs" />
     <Compile Include="Attributes\ILocatable.cs" />
@@ -61,12 +61,14 @@
     <Compile Include="Attributes\Workbook.cs" />
     <Compile Include="Attributes\Worksheet.cs" />
     <Compile Include="Exceptions\NoCellAttributeException.cs" />
+    <Compile Include="Models\Range.cs" />
     <Compile Include="Models\RangeInfo.cs" />
     <Compile Include="ReportBase.cs" />
     <Compile Include="IExportable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetBase.cs" />
     <Compile Include="TableBase.cs" />
+    <Compile Include="TableItemBase.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

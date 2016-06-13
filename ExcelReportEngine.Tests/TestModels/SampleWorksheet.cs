@@ -15,7 +15,7 @@ namespace ExcelReportEngine.Tests.TestModels
     [Row(Index = 3, Height = 3)]
     public class SampleWorksheet : SheetBase
     {
-        [Cells(Row = 2, Column = 2, ToRow = 2, ToColumn = 7)]
+        [Cell(Row = 2, Column = 2, Width = 0, Height = 5)]
         [Font(ColorRgb = 0, FontName = "Arial", FontWeight = FontWeights.Bold, Size = 25)]
         [AlignText(Align = ExcelHorizontalAlignment.Center)]
         public string Title { get; set; }
@@ -45,12 +45,13 @@ namespace ExcelReportEngine.Tests.TestModels
         [AlignText(Align = ExcelHorizontalAlignment.Right)]
         public string CustomerNameLabel { get; set; }
 
-        [Cell(Row = 5, Column = 3)]
+        [Cell(Row = 5, Column = 3, Id = "customerName")]
         [Font(ColorRgb = 0, FontName = "Arial", FontWeight = FontWeights.Normal, Size = 13)]
         [AlignText(Align = ExcelHorizontalAlignment.Left)]
         public string CustomerName { get; set; }
 
         [Table]
+        [Cell(Column = 2, MarginRow = 1, MarginWith = "customerName")]
         public SampleCustomerComplaintTable CustomerComplaintTable { get; set; }
     }
 }
