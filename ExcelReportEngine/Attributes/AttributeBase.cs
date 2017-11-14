@@ -15,8 +15,11 @@ namespace ExcelReportEngine.Attributes
 
         public virtual void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value)
         {
-            _lastRow = range.ToRow >= range.FromRow ? range.ToRow : range.FromRow;
-            _lastColumn = range.ToColumn >= range.FromColumn ? range.ToColumn : range.FromColumn;
+            if(range != null)
+            {
+                _lastRow = range.ToRow >= range.FromRow ? range.ToRow : range.FromRow;
+                _lastColumn = range.ToColumn >= range.FromColumn ? range.ToColumn : range.FromColumn;
+            }
         }
 
         public virtual int GetLastColumn() { return 0; }

@@ -37,8 +37,10 @@ namespace ExcelReportEngine.Attributes
         
         public override void ApplyToSheet(ExcelWorksheet sheet, RangeInfo range, object value)
         {
-            sheet.Cells[Row, Column, EndRow, EndColumn].Merge = true;
-            sheet.Cells[Row, Column, EndRow, EndColumn].Value = value;
+            sheet.Cells[Row == 0 ? range.FromRow : Row, Column == 0 ? range.FromColumn : Column
+                , EndRow == 0 ? range.ToRow : EndRow, EndColumn == 0 ? range.ToColumn : EndColumn].Merge = true;
+            sheet.Cells[Row == 0 ? range.FromRow : Row, Column == 0 ? range.FromColumn : Column
+                , EndRow == 0 ? range.ToRow : EndRow, EndColumn == 0 ? range.ToColumn : EndColumn].Value = value;
 
             base.ApplyToSheet(sheet, range, value);
         }

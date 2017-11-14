@@ -62,6 +62,11 @@ namespace ExcelReportEngine
 
         private RangeInfo GetRangeObject(object[] attributes, PropertyInfo prop)
         {
+            if (typeof(TableBase).IsAssignableFrom(prop.GetValue(this).GetType()))
+            {
+                return null;
+            }
+
             var cellAttr = attributes.FirstOrDefault(x => iLocatableType.IsInstanceOfType(x));
             if (cellAttr == null)
             {

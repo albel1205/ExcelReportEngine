@@ -24,15 +24,17 @@ namespace ExcelReportEngine.Attributes
             var props = table.GetType().GetProperties();
             foreach (var prop in props)
             {
+                if (prop.Name.Contains("TypeId"))//default property of Attribute object
+                {
+                    continue;
+                }
+
                 var propAttributes = GetPropertyAttributes(prop);
 
-                RangeInfo rangeInfo = GetRangeObject(propAttributes.ToArray(), prop);
-                object propValue = prop.GetValue(this);
+                object propValue = prop.GetValue(value);
 
-                propAttributes.ForEach(x => x.ApplyToSheet(sheet, rangeInfo, propValue));
+                propAttributes.ForEach(x => x.ApplyToSheet(sheet, null, propValue));
             }
-
-            base.ApplyToSheet(sheet, range, value);
         }
 
         private List<IRangeDecorator> GetPropertyAttributes(PropertyInfo property)
@@ -41,26 +43,6 @@ namespace ExcelReportEngine.Attributes
                     .Where(x => iRangeDecoratorType.IsInstanceOfType(x))
                     .Cast<IRangeDecorator>()
                     .ToList();
-        }
-
-        private RangeInfo GetRangeObject(object[] attributes, PropertyInfo prop)
-        {
-            var cellAttr = attributes.FirstOrDefault(x => iLocatableType.IsInstanceOfType(x));
-            if (cellAttr == null)
-            {
-                throw new NoCellAttributeException(
-                    string.Format("There is no Cell / Cells attribute on the {0} property", prop.Name));
-            }
-
-            var range = (cellAttr as ILocatable).GetRange();
-            var value = prop.GetValue(this);
-            if (value == null)
-            {
-                throw new ArgumentNullException(prop.Name);
-            }
-
-            var rangeInfo = new RangeInfo(range);
-            return rangeInfo;
         }
     }
 }

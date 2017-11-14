@@ -27,22 +27,11 @@ namespace ExcelReportEngine.Tests
             Assert.IsTrue(true);
         }
 
-        private void SaveExcelReport(MemoryStream stream)
-        {
-            string filePath = @"c:\temp\" + EXCEL_FILE;
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-
-            WriteToFile(stream, filePath);
-        }
-
         private SampleExcelReport GetSampleExcelReport()
         {
             var sheet = new SampleWorksheet()
             {
-                //CustomerComplaintTable = GetSampleCustomerComplaintTable(),
+                CustomerComplaintTable = GetSampleCustomerComplaintTable(),
                 FromPeriod = "2015-15-01",
                 FromPeriodLabel = "From:",
                 ToPeriod = "2015-15-01",

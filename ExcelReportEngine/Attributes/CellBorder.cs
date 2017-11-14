@@ -10,7 +10,7 @@ using ExcelReportEngine.Models;
 namespace ExcelReportEngine.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class Border : AttributeBase
+    public class CellBorder : AttributeBase
     {
         public ExcelBorderStyle Top { get; set; }
         public ExcelBorderStyle Right { get; set; }
