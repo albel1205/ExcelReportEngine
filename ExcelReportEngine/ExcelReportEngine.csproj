@@ -52,6 +52,7 @@
     <Compile Include="Attributes\Cell.cs" />
     <Compile Include="Attributes\Column.cs" />
     <Compile Include="Attributes\Font.cs" />
+    <Compile Include="Attributes\Format.cs" />
     <Compile Include="Attributes\Header.cs" />
     <Compile Include="Attributes\ILocatable.cs" />
     <Compile Include="Attributes\IRangeDecorator.cs" />

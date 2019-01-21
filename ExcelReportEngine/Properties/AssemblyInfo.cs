@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ExcelReportEngine")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2019 https://github.com/albel1205/ExcelReportEngine")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

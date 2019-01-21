@@ -10,6 +10,7 @@ namespace ExcelReportEngine.Tests.TestModels
     public class SampleCustomerComplaintItem : TableItemBase
     {
         [Cell(Column = 1)]
+        [Format(Mask = "mm-dd-yy")]
         public DateTime RegisteredDate { get; set; }
         [Cell(Column = 2)]
         public string ComplaintTypeText { get; set; }
